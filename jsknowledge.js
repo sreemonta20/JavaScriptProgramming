@@ -56,3 +56,71 @@ const MainFunc = (quote, callback) =>{
 
 MainFunc(resultFunction, logQuote);
 
+
+// Example 3 (callback in eventlistener)
+{/* <button class="btn">Click Me</button>
+<script>
+debugger;
+const btn = document.querySelector('.btn');
+
+btn.addEventListener('click', () => {
+  let name = 'John doe';
+  document.getElementById("nametxt").innerHTML = name;
+})
+</script> */}
+
+
+// Example 4 (Callback Hell)
+setTimeout(() => {
+    console.log("Joel");
+    setTimeout(() => {
+        console.log("Victoria");
+        setTimeout(() => {
+            console.log("John");
+            setTimeout(() => {
+                console.log("Doe");
+                setTimeout(() => {
+                    console.log("Sarah");
+                }, 2000);
+            }, 2000);
+        }, 2000);
+    }, 2000);
+}, 2000);
+
+
+// Example 5 (Promise from Callback hell conversion -Practical)
+
+
+function addName (time, name){
+    var sum = 0;
+    return new Promise ((resolve, reject) => {
+      if(name){
+        setTimeout(()=>{
+          console.log('name: '+name + ' and time: '+ time)
+          resolve();
+        },time)
+      }else{
+        reject('No such name');
+      }
+    })
+  }
+
+  
+  addName(2000, 'Joel')
+    .then(()=>{
+        //console.log("4 seconds");
+        addName(2000, 'Victoria')
+    })
+    .then(()=>{
+        //console.log("6 seconds");
+        addName(2000, 'John')
+    })
+    .then(()=>{
+       // console.log("8 seconds");
+        addName(2000, 'Doe')
+    })
+    .then(()=>{
+        //console.log("10 seconds");
+        addName(2000, 'Sarah')
+    })
+    .catch((err)=>console.log(err))
