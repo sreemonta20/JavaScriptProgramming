@@ -42,6 +42,7 @@ const resultFunction = () =>{
     return 'eat your vegetables!';
 }
 
+
 //-------callback function which would be passed as argument in the main function. After getting the data from result, callback function will be called from the main function.
 const logQuote = (quote) =>{
     console.log(quote + ' from callback')
