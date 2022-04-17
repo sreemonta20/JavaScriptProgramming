@@ -167,3 +167,40 @@ function addName (time, name){
     var result3 = SortArray(case3);
     console.log(result3);
 
+// Example 7: Write a function to find out the maximum value out of array of number.
+const solution = (numbers) => {
+    // Type your solution here
+    let max = 0;
+    numbers.forEach((element, index) =>{
+        if(max < element){
+            max = element;
+        }
+    });
+    return max;
+};
+
+console.log(solution);
+
+// Example 8: Write a functionary (binary tree) 
+
+const solutionBinary = (arr) => {
+    // Type your solution here 
+    let tLength = 0;
+    const leftArray = [];
+    const rightArray = [];
+    let equallength = 0;
+    let count = 0;
+    if(tlength%2 === 0){
+        equallength = tlength / 2;
+    }
+    
+    for(let i = 0; i<tlength - count; i++){
+        
+        while(count < equallength){
+            
+        }
+    }
+    
+    
+};
+
