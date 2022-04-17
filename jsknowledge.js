@@ -124,3 +124,46 @@ function addName (time, name){
         addName(2000, 'Sarah')
     })
     .catch((err)=>console.log(err))
+
+
+
+    // Example 6 SortArray(["a","ccc","dd"]) -->SortArray(["a","dd","ccc"]), SortArray([2,"bds","a"]) --> SortArray(["a",2,"bds"]), SortArray(["a",12,"d2d"]) --> SortArray(["a","d2d",12])
+
+    const SortArray = (uArr) =>{
+        var containsNumber = /\d/; 
+        for(let i = 0; i<uArr.length; i++){
+            for(let j = i + 1; j< uArr.length; j++){
+                if(isNaN(uArr[i]) && isNaN(uArr[j])){
+                    if(uArr[i].length > uArr[j].length){
+                        var m = uArr[i];
+                        uArr[i] = uArr[j];
+                        uArr[j] = m;
+                    }
+                }else if((typeof(uArr[i]) === "number") && (typeof(uArr[j]) === "string")){
+                    if(uArr[j].length === 1){
+                        var m = uArr[i];
+                        uArr[i] = uArr[j];
+                        uArr[j] = m;
+                    }else if(uArr[j].length > 1 && containsNumber.test(uArr[j])){
+                        var m = uArr[i];
+                        uArr[i] = uArr[j];
+                        uArr[j] = m;
+                    }
+                }
+            }
+        }
+        return uArr;
+    }
+
+    const case1 = new Array("a","ccc","dd");
+    var result1 = SortArray(case1);
+    console.log(result1);
+
+    const case2 = new Array(2,"bds","a");
+    var result2 = SortArray(case2);
+    console.log(result2);
+
+    const case3 = new Array("a",12,"d2d");
+    var result3 = SortArray(case3);
+    console.log(result3);
+
